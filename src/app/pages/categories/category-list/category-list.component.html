@@ -19,16 +19,35 @@
       <td>Ações</td>
     </tr>
   </thead>
+  <tbody></tbody>
+
   <tbody>
-    <tr>
+    <tr *ngFor="let category of categories">
       <td>
-        <strong>Lazer</strong><br />
-        <small>aa,bb,cc</small>
+        <strong>{{ category.name }}</strong
+        ><br />
+        <small>{{ category.description }}</small>
       </td>
       <td>
-        <a [routerLink]="[12, 'edit']" class="btn btn-outline-info btn-sm mr-2">Editar</a>
-        <button class="btn btn-outline-danger btn-sm">Excluir</button>
+        <a
+          [routerLink]="[category.id, 'edit']"
+          class="btn btn-outline-info btn-sm mr-2">Editar</a
+        >
+        <button (click)="deleteCategory(category)" class="btn btn-outline-danger btn-sm">Excluir</button>
       </td>
     </tr>
   </tbody>
+
+  <!-- <tr>
+    <td>
+      <strong>Lazer</strong><br />
+      <small>aa,bb,cc</small>
+    </td>
+    <td>
+      <a [routerLink]="[12, 'edit']" class="btn btn-outline-info btn-sm mr-2"
+        >Editar</a
+      >
+      <button class="btn btn-outline-danger btn-sm">Excluir</button>
+    </td>
+  </tr> -->
 </table>
